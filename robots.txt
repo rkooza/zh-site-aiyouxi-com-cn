@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rkooza.github.io/zh-site-aiyouxi-com-cn/sitemap.xml
