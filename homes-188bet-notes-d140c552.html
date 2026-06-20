@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>188bet 品牌介绍 · 轻量导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f5f7;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 2rem 1.2rem;
+        }
+
+        .page-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            padding: 1rem 2rem;
+            border-radius: 48px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e9ecef;
+            margin-bottom: 3rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 1.25rem;
+            letter-spacing: -0.01em;
+            color: #1e2a3a;
+        }
+
+        .logo-marker {
+            width: 8px;
+            height: 8px;
+            background: #2c6b9e;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #3a4b5c;
+            font-size: 0.95rem;
+            font-weight: 450;
+            transition: color 0.2s, border-bottom 0.2s;
+            padding-bottom: 0.2rem;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: #1e2a3a;
+            border-bottom-color: #2c6b9e;
+        }
+
+        /* 主标题区 */
+        .hero {
+            text-align: center;
+            padding: 3rem 0.5rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+            color: #1e2a3a;
+        }
+
+        .hero .subhead {
+            font-size: 1.1rem;
+            color: #4b5d6e;
+            max-width: 660px;
+            margin: 1rem auto 2rem;
+        }
+
+        .hero .accent-line {
+            display: inline-block;
+            width: 48px;
+            height: 3px;
+            background: #2c6b9e;
+            border-radius: 12px;
+        }
+
+        /* 核心介绍卡片 */
+        .intro-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.5rem 2.8rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e6eaef;
+            margin-bottom: 2.8rem;
+        }
+
+        .intro-card p {
+            font-size: 1.05rem;
+            color: #2a3a4a;
+            margin-bottom: 1.2rem;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-highlight {
+            background: #f2f5f9;
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            font-weight: 450;
+        }
+
+        /* 三个场景模块 —— 卡片网格 */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 1.8rem;
+            border: 1px solid #e3e8ee;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01), 0 1px 3px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 24px rgba(0, 0, 0, 0.03), 0 4px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .scene-card .emoji-bg {
+            font-size: 1.8rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .scene-card h3 {
+            font-weight: 500;
+            font-size: 1.3rem;
+            margin-bottom: 0.6rem;
+            color: #1e2a3a;
+        }
+
+        .scene-card p {
+            color: #3d4e5e;
+            font-size: 0.95rem;
+        }
+
+        /* 常见说明 (faq 风格) */
+        .faq-section {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.5rem 2.8rem;
+            border: 1px solid #e6eaef;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02);
+            margin-bottom: 2.8rem;
+        }
+
+        .faq-section h2 {
+            font-weight: 500;
+            font-size: 1.8rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.8rem;
+            color: #1e2a3a;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #edf1f6;
+            padding: 1.2rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 500;
+            font-size: 1.05rem;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #1c2a3a;
+        }
+
+        .faq-question::before {
+            content: "▹";
+            color: #2c6b9e;
+            font-weight: 300;
+        }
+
+        .faq-answer {
+            color: #4b5d6e;
+            padding-left: 1.6rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* 内联链接风格 */
+        a {
+            color: #1e2a3a;
+            text-decoration: none;
+            border-bottom: 1px solid #b6c8da;
+            transition: border-color 0.2s, color 0.2s;
+            font-weight: 450;
+        }
+
+        a:hover {
+            border-bottom-color: #2c6b9e;
+            color: #2c6b9e;
+        }
+
+        /* 页脚 */
+        .footer-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6b7c8b;
+            border-top: 1px solid #e0e5ec;
+            padding-top: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 880px) {
+            .scenes-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+                padding: 1.2rem 1.5rem;
+                border-radius: 32px;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .intro-card {
+                padding: 2rem 1.8rem;
+            }
+
+            .faq-section {
+                padding: 2rem 1.8rem;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .scenes-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .navbar {
+                border-radius: 28px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .intro-card,
+            .faq-section {
+                padding: 1.8rem 1.2rem;
+                border-radius: 24px;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 顶部导航 -->
+    <nav class="navbar">
+        <div class="logo-area">
+            <span class="logo-marker"></span>
+            <span>188bet 导航</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro">介绍</a></li>
+            <li><a href="#scenes">场景</a></li>
+            <li><a href="#faq">说明</a></li>
+        </ul>
+    </nav>
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>188bet · 轻量导航</h1>
+        <p class="subhead">
+            从品牌内核出发，理清思路，找到属于你的信息路径。
+            简约、克制、有层次。
+        </p>
+        <span class="accent-line"></span>
+    </div>
+
+    <!-- 核心介绍 -->
+    <section id="intro" class="intro-card">
+        <p>
+            提到 <a href="https://homes-188bet.com">188bet</a>，很多人会联想到数字背后的节奏感。
+            但真正值得关注的，是围绕这个关键词所形成的清晰结构和有效逻辑。
+            我们尝试用更温和的视角，把「188bet」理解为一个符号，一种内容组织的线索。
+        </p>
+        <p>
+            这个页面不追求信息轰炸，而是借助<span class="intro-highlight">轻量导航</span>的框架，
+            把三个常见模块、一段核心介绍、以及一些常见疑问整理出来。
+            无论是初次接触还是想重新梳理，都可以得到一个从容的起点。
+            <a href="https://homes-188bet.com">188bet</a> 本身并不复杂，复杂的是信息被呈现的方式。
+        </p>
+        <p>
+            我们相信，好的介绍页应当像一张折叠好的地图，打开后方向清晰，不留负担。
+        </p>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <section id="scenes" class="scenes-grid">
+        <div class="scene-card">
+            <div class="emoji-bg">📋</div>
+            <h3>信息整理</h3>
+            <p>面对零散的内容，先建立框架。用标签、摘要和分层阅读，把「188bet」相关的核心信息归类，避免遗漏重点。</p>
+        </div>
+        <div class="scene-card">
+            <div class="emoji-bg">🔍</div>
+            <h3>路径检索</h3>
+            <p>从关键词出发，快速定位所需模块。导航即索引，好的结构让人一目了然，减少反复点击的疲惫感。</p>
+        </div>
+        <div class="scene-card">
+            <div class="emoji-bg">📌</div>
+            <h3>常态参考</h3>
+            <p>常见说明和提示放在手边。遇到疑问时，不必重新搜索，直接翻阅 FAQ 摘要即可得到温和的回应。</p>
+        </div>
+    </section>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <section id="faq" class="faq-section">
+        <h2>常见说明</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">这个页面和 188bet 是什么关系？</div>
+            <div class="faq-answer">
+                这是一个围绕关键词「188bet」制作的介绍型导航页。内容方向是轻量、温和、中立，
+                旨在帮助阅读者从信息组织角度理解品牌背后的逻辑。<a href="https://homes-188bet.com">188bet</a> 是主要关联站点。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">为什么选择三个场景模块？</div>
+            <div class="faq-answer">
+                三模块结构清晰，不拥挤也不单薄。信息整理、路径检索、常态参考基本覆盖了大多数用户从了解到使用的常见场景。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">页面内容会更新吗？</div>
+            <div class="faq-answer">
+                当前版本为静态介绍页，后续可能会根据结构需要调整卡片内容或 FAQ 条目。所有更新都会保持温和流畅的语气，不放广告。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">我可以直接使用这个页面吗？</div>
+            <div class="faq-answer">
+                页面基于通用 HTML 和 CSS 构建，适合作为 GitHub Pages 的起始页。你可以 fork 并调整配色或文案，只要保留<a href="https://homes-188bet.com">188bet</a>的原始链接即可。
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        轻量导航 · 内容由浅入深 · 不堆砌不夸大
+    </div>
+
+</div>
+</body>
+</html>
